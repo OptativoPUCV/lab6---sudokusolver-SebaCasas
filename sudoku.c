@@ -48,7 +48,10 @@ int is_valid(Node* n) {
 
     // Validar filas
     for (int i = 0; i < 9; i++) {
-        memset(check, 0, sizeof(check));  // Inicializar check a 0
+        // Inicializar el arreglo de verificación
+        for (int k = 0; k < 10; k++) {
+            check[k] = 0;
+        }
         for (int j = 0; j < 9; j++) {
             int num = n->sudo[i][j];
             if (num != 0) {
@@ -60,7 +63,10 @@ int is_valid(Node* n) {
 
     // Validar columnas
     for (int j = 0; j < 9; j++) {
-        memset(check, 0, sizeof(check));  // Inicializar check a 0
+        // Inicializar el arreglo de verificación
+        for (int k = 0; k < 10; k++) {
+            check[k] = 0;
+        }
         for (int i = 0; i < 9; i++) {
             int num = n->sudo[i][j];
             if (num != 0) {
@@ -72,7 +78,10 @@ int is_valid(Node* n) {
 
     // Validar submatrices 3x3
     for (int k = 0; k < 9; k++) {
-        memset(check, 0, sizeof(check));  // Inicializar check a 0
+        // Inicializar el arreglo de verificación
+        for (int l = 0; l < 10; l++) {
+            check[l] = 0;
+        }
         for (int p = 0; p < 9; p++) {
             int i = 3 * (k / 3) + (p / 3);
             int j = 3 * (k % 3) + (p % 3);
