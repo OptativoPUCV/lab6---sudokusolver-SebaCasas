@@ -46,50 +46,42 @@ void print_node(Node* n){
 int is_valid(Node* n) {
   int check[10];
 
-  // Validar filas
   for (int i = 0; i < 9; i++) {
-    // Inicializar el arreglo de verificación
-    for (int k = 0; k < 10; k++) {
+    for (int k = 0; k < 10; k++)
       check[k] = 0;
-    }
+    
     for (int j = 0; j < 9; j++) {
       int num = n->sudo[i][j];
-      if (num != 0) {
+      if (num != 0)
         if (check[num] == 1) return 0;
-          check[num] = 1;
-      }
+        check[num] = 1;
     }
   }
 
-  // Validar columnas
   for (int j = 0; j < 9; j++) {
-    // Inicializar el arreglo de verificación
-    for (int k = 0; k < 10; k++) {
+    for (int k = 0; k < 10; k++)
       check[k] = 0;
-    }
+      
     for (int i = 0; i < 9; i++) {
       int num = n->sudo[i][j];
-      if (num != 0) {
+      if (num != 0)
         if (check[num] == 1) return 0;
-          check[num] = 1;
-      }
+        check[num] = 1;
     }
   }
 
-  // Validar submatrices 3x3
+
   for (int k = 0; k < 9; k++) {
-    // Inicializar el arreglo de verificación
-    for (int l = 0; l < 10; l++) {
+    for (int l = 0; l < 10; l++)
       check[l] = 0;
-    }
+    
     for (int p = 0; p < 9; p++) {
       int i = 3 * (k / 3) + (p / 3);
       int j = 3 * (k % 3) + (p % 3);
       int num = n->sudo[i][j];
-      if (num != 0) {
+      if (num != 0) 
         if (check[num] == 1) return 0;
-          check[num] = 1;
-      }
+        check[num] = 1;
     }
   }
   return 1;
@@ -101,20 +93,18 @@ List* get_adj_nodes(Node* n) {
   int i = 0, j = 0;
   int found = 0;
 
-  // Encontrar la primera casilla vacía
   for (i = 0; i < 9 && !found; i++) {
     for (j = 0; j < 9 && !found; j++) {
       if (n->sudo[i][j] == 0) {
         found = 1;
-        i--; // Ajustar el índice después del bucle
+        i--;
         j--;
       }
     }
   }
 
-  if (!found) return list; // No hay casillas vacías
+  if (!found) return list;
 
-  // Generar nodos adyacentes
   for (int num = 1; num <= 9; num++) {
     Node* new_node = copy(n);
     new_node->sudo[i][j] = num;

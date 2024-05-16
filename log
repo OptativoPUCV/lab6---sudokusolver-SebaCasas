@@ -22,3 +22,29 @@ Thu 16 May 2024 03:58:40 PM UTC:
  tests:  10|0
 total_score: 70/70
 a27d46a
+Thu 16 May 2024 04:01:56 PM UTC: 
+ sudoku.c | 34 ++++++++++++----------------------
+ 1 file changed, 12 insertions(+), 22 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:55:7: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+   55 |       if (num != 0)
+      |       ^~
+sudoku.c:57:9: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   57 |         check[num] = 1;
+      |         ^~~~~
+sudoku.c:67:7: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+   67 |       if (num != 0)
+      |       ^~
+sudoku.c:69:9: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   69 |         check[num] = 1;
+      |         ^~~~~
+sudoku.c:82:7: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+   82 |       if (num != 0)
+      |       ^~
+sudoku.c:84:9: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   84 |         check[num] = 1;
+      |         ^~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+9ae561a
