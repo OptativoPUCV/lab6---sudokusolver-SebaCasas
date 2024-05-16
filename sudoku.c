@@ -112,19 +112,14 @@ List* get_adj_nodes(Node* n) {
     }
   }
 
-  if (!found) {
-    return list; // No hay casillas vacías
-  }
+  if (!found) return list; // No hay casillas vacías
 
   // Generar nodos adyacentes
   for (int num = 1; num <= 9; num++) {
     Node* new_node = copy(n);
     new_node->sudo[i][j] = num;
-    if (is_valid(new_node)) {
-      pushBack(list, new_node);
-    } else {
-      free(new_node);
-    }
+    if (is_valid(new_node)) pushBack(list, new_node);
+    else free(new_node);
   }
   return list;
 }
